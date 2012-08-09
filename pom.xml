@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>pl.com.it_crowd.datico</groupId>
+    <artifactId>datico</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <properties>
+        <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.0-rc1</version>
+        </dependency>
+    </dependencies>
+    <scm>
+        <developerConnection>scm:git:https://github.com/it-crowd/datico.git</developerConnection>
+    </scm>
+    <distributionManagement>
+        <repository>
+            <id>it-crowd.com.pl</id>
+            <name>IT Crowd Internal Repository</name>
+            <url>http://artifactory.it-crowd.com.pl/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>it-crowd.com.pl</id>
+            <name>IT Crowd Internal Repository</name>
+            <url>http://artifactory.it-crowd.com.pl/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.1.2</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
